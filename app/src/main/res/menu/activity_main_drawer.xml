@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_device_info_id"
+            android:icon="@drawable/nav_device_info"
+            android:title="Device Info" />
+        <item
+            android:id="@+id/nav_system_info_id"
+            android:icon="@drawable/nav_system_info"
+            android:title="System Info" />
+        <item
+            android:id="@+id/nav_apps_info_id"
+            android:icon="@drawable/nav_apps_info"
+            android:title="Apps Info" />
+        <item
+            android:id="@+id/nav_about_id"
+            android:icon="@drawable/nav_about"
+            android:title="About" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share_id"
+                android:icon="@drawable/nav_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_rate_id"
+                android:icon="@drawable/nav_rate"
+                android:title="Rate" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeviceFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBar">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="DEVICE"
+                        android:textColor="#fff"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bottomborder">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Model"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"
+                            android:textColor="#000"/>
+                        <TextView
+                            android:id="@+id/device_model_id"
+                            android:textColor="#000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bottomborder">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:paddingLeft="5sp"
+                                android:text="Manufacture"
+                                android:textColor="#000"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/device_manufacture_id"
+                                android:textColor="#000"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:paddingLeft="5sp"
+                                android:text=""
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bottomborder">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Brand"
+                            android:textColor="#000"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"/>
+                        <TextView
+                            android:id="@+id/device_brand_id"
+                            android:textColor="#000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bottomborder">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000"
+                            android:layout_weight="1"
+                            android:text="Serial ID"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"/>
+                        <TextView
+                            android:id="@+id/device_serial_id"
+                            android:textColor="#000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bottomborder">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Device IMEI"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:textColor="#000"
+                            android:paddingLeft="5sp"/>
+                        <TextView
+                            android:id="@+id/device_imei_id"
+                            android:textColor="#000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBar">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SCREEN"
+                        android:textColor="#fff"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bottomborder">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Screen Size"
+                            android:textSize="16sp"
+                            android:textColor="#000"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"/>
+                        <TextView
+                            android:id="@+id/screen_size_id"
+                            android:textColor="#000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bottomborder">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000"
+                            android:layout_weight="1"
+                            android:text="Resolution"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"/>
+                        <TextView
+                            android:id="@+id/screen_resulation_id"
+                            android:textColor="#000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bottomborder">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Screen Density"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:textColor="#000"
+                            android:paddingLeft="5sp"/>
+                        <TextView
+                            android:id="@+id/screen_density_id"
+                            android:textColor="#000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bottomborder">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Refresh Rate"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:textColor="#000"
+                            android:paddingLeft="5sp"/>
+                        <TextView
+                            android:id="@+id/screen_refresh_id"
+                            android:textColor="#000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBar">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="CAMARA"
+                        android:textColor="#fff"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bottomborder">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Front"
+                            android:textSize="16sp"
+                            android:textColor="#000"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"/>
+                        <TextView
+                            android:id="@+id/camara_front_id"
+                            android:textColor="#000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bottomborder">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Back"
+                            android:textSize="16sp"
+                            android:textColor="#000"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"/>
+                        <TextView
+                            android:id="@+id/camara_back_id"
+                            android:textColor="#000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:orientation="horizontal"></LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="7">
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            android:layout_gravity="center"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        </com.google.android.gms.ads.AdView>
+    </LinearLayout>
+
+
+</LinearLayout>
