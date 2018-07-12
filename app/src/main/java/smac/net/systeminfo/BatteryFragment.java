@@ -16,6 +16,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +36,7 @@ public class BatteryFragment extends Fragment {
     TextView temperatureTv;
     TextView technologyTv;
     private BroadcastReceiver batteryInfoReceiver;
+    private AdView mAdView;
 
     public BatteryFragment() {
         // Required empty public constructor
@@ -69,6 +74,14 @@ public class BatteryFragment extends Fragment {
         intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
 
         getActivity().registerReceiver(batteryInfoReceiver, intentFilter);
+
+        //==================...........Admob ............==================
+        MobileAds.initialize(getActivity().getBaseContext(),"ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        //============================Admob end====================================
 
         return view;
     }

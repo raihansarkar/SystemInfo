@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -37,6 +41,7 @@ public class CPUFragment extends Fragment {
     TextView cpu_governor;
     TextView kernel_version;
     TextView kernel_architectute;
+    private AdView mAdView;
 
     
 
@@ -77,6 +82,15 @@ public class CPUFragment extends Fragment {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //==================...........Admob ............==================
+        MobileAds.initialize(getActivity().getBaseContext(),"ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        //============================Admob end====================================
+
         return view;
     }
 
@@ -95,9 +109,14 @@ public class CPUFragment extends Fragment {
 
         String line;
         Log.d("cpu","aha");
-        while ((line = bufferedReader.readLine()) != null) {
-            log.append(line + "\n");
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
+                log.append(line + "\n");
+            }
+        }catch (Exception e){
+            // no action
         }
+
         Log.d("cpu",log.toString());
 
         double value=Double.parseDouble(log.toString());
