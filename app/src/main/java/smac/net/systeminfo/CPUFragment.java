@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 
 
@@ -70,34 +72,35 @@ public class CPUFragment extends Fragment {
         cpu_governor.setText(getGovernor());
         //cpu_model.setText(Integer.toString(getMaxCPUFreqMHz()));
         java_heap.setText(Formatter.formatFileSize(getActivity().getBaseContext(), Runtime.getRuntime().maxMemory()));
-        clock_speed.setText(ReadCPUMhz());
+        try {
+            clock_speed.setText(ReadCPUMhz2());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return view;
     }
 
-    private String ReadCPUMhz()
+    public String ReadCPUMhz2() throws IOException
     {
+        String[] args = {"/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq"};
+
         ProcessBuilder cmd;
-        String result="";
-        int resultshow = 0;
+        cmd = new ProcessBuilder(args);
+        Process process = null;
+        process = cmd.start();
 
-        try{
-            String[] args = {"/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq"};
-            cmd = new ProcessBuilder(args);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
-            Process process = cmd.start();
-            InputStream in = process.getInputStream();
-            byte[] re = new byte[1024];
-            while(in.read(re) != -1)
-            {
-                result = result + new String(re);
+        StringBuilder log=new StringBuilder();
 
-            }
-
-            in.close();
-        } catch(IOException ex){
-            ex.printStackTrace();
+        String line;
+        Log.d("cpu","aha");
+        while ((line = bufferedReader.readLine()) != null) {
+            log.append(line + "\n");
         }
-        Double value=Double.parseDouble(result);
+        Log.d("cpu",log.toString());
+
+        double value=Double.parseDouble(log.toString());
         value=value/1000;
         String st=Double.toString(value)+" MHz";
         if (value>1000){
