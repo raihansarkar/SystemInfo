@@ -6,12 +6,10 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity
 //                        .setAction("Action", null).show();
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT,"System Info Android Application of SMAC Technology and from this app you can see your device hardware information such as Device, Camara, CPU, OS, Sensor. You can also know about Network, System and Installed Application. You can know about your device deeper configaration and Status.  https://play.google.com/store/apps/details?id=smac.net.fifaworldcup");
+                sendIntent.putExtra(Intent.EXTRA_TEXT,"System Info Android Application of SMAC Technology and from this app you can see your device hardware information such as Device, Camara, CPU, OS, Sensor. You can also know about Network, System and Installed Application. You can know about your device deeper configaration and Status.  https://play.google.com/store/apps/details?id=smac.net.systeminfo");
                 sendIntent.setType("text/plain");
                 Intent.createChooser(sendIntent,"Share via");
                 startActivity(sendIntent);
@@ -88,11 +87,11 @@ public class MainActivity extends AppCompatActivity
                 // No explanation needed; request the permission
                 ActivityCompat.requestPermissions(this,
                         new String[]{android.Manifest.permission.CAMERA},
-                        1);
+                        101);
 
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.READ_PHONE_STATE},
-                        1);
+                        102);
 
                 // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
                 // app-defined int constant. The callback method gets the
@@ -165,7 +164,7 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else if (id == R.id.nav_rate_id) {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=smac.net.fifaworldcup"));
+            intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=smac.net.systeminfo"));
             startActivity(intent);
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
