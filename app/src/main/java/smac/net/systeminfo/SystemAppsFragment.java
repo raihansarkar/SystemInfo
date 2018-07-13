@@ -9,6 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +23,7 @@ public class SystemAppsFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager recyclerViewLayoutManager;
+    private AdView mAdView;
 
     public SystemAppsFragment() {
         // Required empty public constructor
@@ -41,6 +46,14 @@ public class SystemAppsFragment extends Fragment {
         adapter = new SystemAppsAdapter(getActivity().getApplicationContext(), new SystemApkInfoExtractor(getActivity().getApplicationContext()).GetAllInstalledApkInfo());
 
         recyclerView.setAdapter(adapter);
+
+        //==================...........Admob ............==================
+        MobileAds.initialize(getActivity().getBaseContext(),"ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        //============================Admob end====================================
 
         return view;
     }

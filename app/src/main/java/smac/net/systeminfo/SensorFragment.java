@@ -13,6 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +36,8 @@ public class SensorFragment extends Fragment {
     TextView fingerprint_sensor;
 
     private SensorManager sensorManager;
+
+    private AdView mAdView;
 
 
     public SensorFragment() {
@@ -57,6 +63,14 @@ public class SensorFragment extends Fragment {
 
 
         isAccelerometerAvailable();
+
+        //==================...........Admob ............==================
+        MobileAds.initialize(getActivity().getBaseContext(),"ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        //============================Admob end====================================
 
         return view;
     }
