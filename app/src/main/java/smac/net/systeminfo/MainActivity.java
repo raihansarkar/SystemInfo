@@ -17,29 +17,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import android.view.View;
-
-import android.widget.Toast;
-
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final int TIME_DELAY = 2000;
-    private static long back_pressed;
-
     FragmentManager fragmentManager;
-    private DeviceInfoFragment deviceInfoFragment;
-    private SystemInfoFragment systemInfoFragment;
-    private AppsInfoFragment appsInfoFragment;
-    private AboutFragment aboutFragment;
-Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.bundle=savedInstanceState;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //Runtime permission method-------------
@@ -70,12 +58,8 @@ Bundle bundle;
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        deviceInfoFragment=new DeviceInfoFragment();
-        systemInfoFragment=new SystemInfoFragment();
-        appsInfoFragment=new AppsInfoFragment();
-        aboutFragment=new AboutFragment();
         fragmentManager=getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.changeLayout,deviceInfoFragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.changeLayout,new DeviceInfoFragment()).commit();
         navigationView.setCheckedItem(R.id.nav_device_info_id);
     }
 
@@ -124,13 +108,7 @@ Bundle bundle;
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
-                super.onBackPressed();
-            } else {
-                Toast.makeText(getBaseContext(), "Press once again to exit!",
-                        Toast.LENGTH_SHORT).show();
-            }
-            back_pressed = System.currentTimeMillis();
+            super.onBackPressed();
         }
     }
 
@@ -164,30 +142,17 @@ Bundle bundle;
 
         if (id == R.id.nav_device_info_id) {
             // Handle the camera action
-            fragmentManager.beginTransaction().remove(systemInfoFragment);
-            fragmentManager.beginTransaction().remove(aboutFragment);
-            fragmentManager.beginTransaction().remove(appsInfoFragment);
-            fragmentManager.beginTransaction().replace(R.id.changeLayout,deviceInfoFragment).commit();
-
+            fragmentManager=getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.changeLayout,new DeviceInfoFragment()).commit();
         } else if (id == R.id.nav_system_info_id) {
-            fragmentManager.beginTransaction().remove(deviceInfoFragment);
-            fragmentManager.beginTransaction().remove(aboutFragment);
-            fragmentManager.beginTransaction().remove(appsInfoFragment);
-            fragmentManager.beginTransaction().replace(R.id.changeLayout,systemInfoFragment).commit();
-
+            fragmentManager=getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.changeLayout,new SystemInfoFragment()).commit();
         } else if (id == R.id.nav_apps_info_id) {
-            fragmentManager.beginTransaction().remove(systemInfoFragment);
-            fragmentManager.beginTransaction().remove(aboutFragment);
-            fragmentManager.beginTransaction().remove(deviceInfoFragment);
-            fragmentManager.beginTransaction().replace(R.id.changeLayout,appsInfoFragment).commit();
-
+            fragmentManager=getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.changeLayout,new AppsInfoFragment()).commit();
         } else if (id == R.id.nav_about_id) {
-            fragmentManager.beginTransaction().remove(systemInfoFragment);
-            fragmentManager.beginTransaction().remove(deviceInfoFragment);
-            fragmentManager.beginTransaction().remove(appsInfoFragment);
-            fragmentManager.beginTransaction().replace(R.id.changeLayout,aboutFragment).commit();
-
-
+            fragmentManager=getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.changeLayout,new AboutFragment()).commit();
         } else if (id == R.id.nav_share_id) {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);

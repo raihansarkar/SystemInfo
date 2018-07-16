@@ -5,21 +5,17 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.format.Formatter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
 
 
 /**
@@ -39,7 +35,6 @@ public class CPUFragment extends Fragment {
     TextView cpu_governor;
     TextView kernel_version;
     TextView kernel_architectute;
-    private AdView mAdView;
 
     
 
@@ -75,60 +70,40 @@ public class CPUFragment extends Fragment {
         cpu_governor.setText(getGovernor());
         //cpu_model.setText(Integer.toString(getMaxCPUFreqMHz()));
         java_heap.setText(Formatter.formatFileSize(getActivity().getBaseContext(), Runtime.getRuntime().maxMemory()));
-        try {
-            clock_speed.setText(ReadCPUMhz2());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        //==================...........Admob ............==================
-        MobileAds.initialize(getActivity().getBaseContext(),"ca-app-pub-3940256099942544~3347511713");
-
-        mAdView = view.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-        //============================Admob end====================================
-
+        clock_speed.setText(ReadCPUMhz());
         return view;
     }
 
-    public String ReadCPUMhz2() throws IOException
+    private String ReadCPUMhz()
     {
-        String[] args = {"/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq"};
-
         ProcessBuilder cmd;
-        cmd = new ProcessBuilder(args);
-        Process process = null;
-        process = cmd.start();
+        String result="";
+        int resultshow = 0;
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        try{
+            String[] args = {"/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq"};
+            cmd = new ProcessBuilder(args);
 
-        StringBuilder log=new StringBuilder();
+            Process process = cmd.start();
+            InputStream in = process.getInputStream();
+            byte[] re = new byte[1024];
+            while(in.read(re) != -1)
+            {
+                result = result + new String(re);
 
-        String line;
-        Log.d("cpu","aha");
-        try {
-            while ((line = bufferedReader.readLine()) != null) {
-                log.append(line + "\n");
             }
-        }catch (Exception e){
-            // no action
-        }
 
-        Log.d("cpu",log.toString());
-        String st="";
-try {
-    double value = Double.parseDouble("" + log);
-    value = value / 1000;
-     st = value + " MHz";
-    if (value > 1000) {
-        value = value / 1000;
-        st = Double.toString(value) + " GHz";
-    }
-}catch (Exception e)
-{
-    Log.d("log",st);
-}
+            in.close();
+        } catch(IOException ex){
+            ex.printStackTrace();
+        }
+        Double value=Double.parseDouble(result);
+        value=value/1000;
+        String st=Double.toString(value)+" MHz";
+        if (value>1000){
+            value=value/1000;
+            st=Double.toString(value)+" GHz";
+        }
         return st;
     }
 
