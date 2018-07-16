@@ -13,6 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -31,6 +35,8 @@ public class OsFragment extends Fragment {
     TextView build_id;
     TextView code_name;
     TextView fingerprint;
+
+    private AdView mAdView;
 
     public OsFragment() {
         // Required empty public constructor
@@ -60,6 +66,14 @@ public class OsFragment extends Fragment {
         if (isRooted()==true){
             root_access.setText("Rooted");
         }
+
+        //==================...........Admob ............==================
+        MobileAds.initialize(getActivity().getBaseContext(),"ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        //============================Admob end====================================
 
         return view;
     }

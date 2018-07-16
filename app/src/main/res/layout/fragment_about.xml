@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".AboutFragment"
     android:orientation="vertical"
-    android:background="@drawable/blank_screen">
+    >
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -17,6 +17,7 @@
         android:layout_marginTop="20sp"
         android:gravity="center"
         android:text="About"
+        android:textColor="@android:color/black"
         android:textSize="20sp" />
 
     <TextView
@@ -24,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20sp"
+        android:textColor="@android:color/black"
         android:text="System Info
 
 System Info Android Application of SMAC Technology and from this app you can see your device hardware information such as Device, Camara, CPU, OS, Sensor. You can also know about Network, System and Installed Application. You can know about your device deeper configaration and Status." />
@@ -33,6 +35,7 @@ System Info Android Application of SMAC Technology and from this app you can see
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textColor="@android:color/black"
         android:text="Contributors"
         android:textSize="20sp" />
 
@@ -42,8 +45,9 @@ System Info Android Application of SMAC Technology and from this app you can see
         android:layout_height="wrap_content"
         android:layout_marginBottom="100sp"
         android:gravity="center"
+        android:textColor="@android:color/black"
         android:padding="20sp"
-        android:text="\n Raihan Uddin \n" />
+        android:text="\n Raihan Uddin \n Shaikh Faisal Hossain" />
 
     <TextView
 
@@ -51,6 +55,7 @@ System Info Android Application of SMAC Technology and from this app you can see
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textColor="@android:color/black"
         android:padding="20sp"
         android:text="\u00a9 SMAC Technology 2018" />
 </LinearLayout>
